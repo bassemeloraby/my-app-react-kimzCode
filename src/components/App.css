@@ -1,0 +1,13 @@
+.cardWrapper {
+    border: 1px solid gray;
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
