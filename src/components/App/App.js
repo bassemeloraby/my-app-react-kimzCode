@@ -8,10 +8,14 @@ const App = () => {
     { name: 'ahmed', age: 20, adress: 'jada', phone: '05688742554' },
   ]);
 
+  const deleteHndeler = (e,clickedIdx) => {
+    const deleteOperation = state.filter((el,idx) => idx !== clickedIdx)
+    setState(deleteOperation)
+  }
   return (
     <div className="mainContainer">
       <h2>boys namesList</h2>
-      <Card namesList={state} type="men" />
+      <Card namesList={state} type="men" deletefunc = {deleteHndeler} />
     </div>
   );
 };
