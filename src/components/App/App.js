@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
 import Card from '../Card/Card';
+import Filter from '../filter/Filter';
+
 const App = () => {
-  const [cardToggle, setCardToggle] = useState(false);
+  
+  const [cardToggle, setCardToggle] = useState(true);
   const [state, setState] = useState([
     { name: 'bassem', age: 38, adress: 'madina', phone: '01013456994' },
     { name: 'mohammed', age: 30, adress: 'alex', phone: '054555224777' },
     { name: 'ahmed', age: 20, adress: 'jada', phone: '05688742554' },
   ]);
-
+//handelers
   const deleteHndeler = (e, clickedIdx) => {
     // const deleteOperation = state.filter((el,idx) => idx !== clickedIdx)
     // setState(deleteOperation)
@@ -17,16 +20,26 @@ const App = () => {
     });
   };
 
-  const toggleHandelr = () =>{
-    setCardToggle(!cardToggle)
-  }
+  const toggleHandelr = () => {
+    setCardToggle(!cardToggle);
+  };
+
+  // const testHandelr = ()=>{
+  //   console.log(inputEl.current.value)
+  // }
+
+  // const onClick = ()=>{
+  //   inputEl.current.focus()
+  // }
+  
   return (
     <div className="mainContainer">
       <h1>boys namesList</h1>
-      <button style={{ marginBottom: '20px' }} onClick ={toggleHandelr}>
+      <button style={{ marginBottom: '20px' }} onClick={toggleHandelr}>
         {cardToggle ? 'hide names' : 'show names'}
       </button>
       <div className={cardToggle ? 'show' : 'hide'}>
+        <Filter/>
         <Card namesList={state} type="men" deletefunc={deleteHndeler} />
       </div>
     </div>
