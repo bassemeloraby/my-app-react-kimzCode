@@ -6,6 +6,7 @@ import Filter from '../filter/Filter';
 const App = () => {
   
   const [cardToggle, setCardToggle] = useState(true);
+  const [filter,setFilter] = useState('')
   const [state, setState] = useState([
     { name: 'bassem', age: 38, adress: 'madina', phone: '01013456994' },
     { name: 'mohammed', age: 30, adress: 'alex', phone: '054555224777' },
@@ -32,6 +33,16 @@ const App = () => {
   //   inputEl.current.focus()
   // }
   
+  const filterNames = (name)=>{
+    setFilter(name)
+  }
+
+    const namesHandler =()=>{
+      if(filter.length !==0){
+        return state.filter((el)=> el.name.includes(filter) )
+      }
+      return state
+    }
   return (
     <div className="mainContainer">
       <h1>boys namesList</h1>
@@ -39,8 +50,8 @@ const App = () => {
         {cardToggle ? 'hide names' : 'show names'}
       </button>
       <div className={cardToggle ? 'show' : 'hide'}>
-        <Filter/>
-        <Card namesList={state} type="men" deletefunc={deleteHndeler} />
+        <Filter filteration={filterNames}/>
+        <Card namesList={namesHandler()} type="men" deletefunc={deleteHndeler} />
       </div>
     </div>
   );
