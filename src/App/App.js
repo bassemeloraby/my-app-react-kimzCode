@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import CardList from '../CardList/CardList';
-import Filter from '../filter/Filter';
+import CardList from '../components/CardList/CardList';
+import Filter from '../components/filter/Filter';
 
 const App = () => {
   const [cardToggle, setCardToggle] = useState(true);
