@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './Card.module.css';
 
 const Card = ({ namesList, deletefunc }) => {
-  const cards = namesList.map(({ name, age, adress, phone, type }, idx) => (
+  const cards = namesList.map(({ name, age, adress, phone, type, id }) => (
     <div
       className={styles.cardWrapper}
-      key={idx}
+      key={id}
       style={{ backgroundColor: type === 'girl' ? 'pink' : 'lightblue' }}
     >
       <div>Name : {name}</div>
@@ -14,7 +14,7 @@ const Card = ({ namesList, deletefunc }) => {
       <div>Phone: {phone}</div>
       <div
         className={styles.deleteBtn}
-        onClick={(event) => deletefunc(event, idx)}
+        onClick={(event) => deletefunc(event, id)}
       >
         x
       </div>

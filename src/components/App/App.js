@@ -41,11 +41,11 @@ const App = () => {
     },
   ]);
   //handelers
-  const deleteHndeler = (e, clickedIdx) => {
+  const deleteHndeler = (e, selectedID) => {
     // const deleteOperation = state.filter((el,idx) => idx !== clickedIdx)
     // setState(deleteOperation)
     setState((prvState) => {
-      return prvState.filter((el, idx) => idx !== clickedIdx);
+      return prvState.filter((el) => el.id !== selectedID);
     });
   };
 
@@ -73,7 +73,7 @@ const App = () => {
   };
   return (
     <div className="mainContainer">
-      <h1>boys namesList</h1>
+      <h1>Data Names</h1>
       <button style={{ marginBottom: '20px' }} onClick={toggleHandelr}>
         {cardToggle ? 'hide names' : 'show names'}
       </button>
