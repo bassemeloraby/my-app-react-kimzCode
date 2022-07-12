@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Card from '../Card/Card';
+import CardList from '../CardList/CardList';
 import Filter from '../filter/Filter';
 
 const App = () => {
@@ -79,7 +79,7 @@ const App = () => {
       </button>
       <div className={cardToggle ? 'show' : 'hide'}>
         <Filter filteration={filterNames} />
-        <Card
+        <CardList
           namesList={namesHandler()}
           deletefunc={deleteHndeler}
         />
