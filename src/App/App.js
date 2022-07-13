@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import CardList from '../components/CardList/CardList';
 import Filter from '../components/filter/Filter';
+import Modal from '../components/Modal/Modal';
 
 const App = () => {
   const [cardToggle, setCardToggle] = useState(true);
@@ -73,6 +74,7 @@ const App = () => {
   };
   return (
     <div className="mainContainer">
+      <Modal />
       <h1>Data Names</h1>
       <button style={{ marginBottom: '20px' }} onClick={toggleHandelr}>
         {cardToggle ? 'hide names' : 'show names'}
