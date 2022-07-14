@@ -7,9 +7,10 @@ import Modal from '../components/Modal/Modal';
 const App = () => {
   const [cardToggle, setCardToggle] = useState(true);
   const [filter, setFilter] = useState('');
+  const [showModal, setShowModal] = useState(false);
   const [state, setState] = useState([
     {
-      id:1,
+      id: 1,
       name: 'bassem',
       age: 38,
       adress: 'madina',
@@ -17,7 +18,7 @@ const App = () => {
       type: 'men',
     },
     {
-      id:2,
+      id: 2,
       name: 'farah',
       age: 33,
       adress: 'cairo',
@@ -25,7 +26,7 @@ const App = () => {
       type: 'girl',
     },
     {
-      id:3,
+      id: 3,
       name: 'mohammed',
       age: 30,
       adress: 'alex',
@@ -33,7 +34,7 @@ const App = () => {
       type: 'men',
     },
     {
-      id:4,
+      id: 4,
       name: 'mariam',
       age: 20,
       adress: 'jada',
@@ -74,17 +75,24 @@ const App = () => {
   };
   return (
     <div className="mainContainer">
-      <Modal />
+      <Modal show={showModal} closeModal ={()=> setShowModal(false)}/>
       <h1>Data Names</h1>
-      <button style={{ marginBottom: '20px' }} onClick={toggleHandelr}>
-        {cardToggle ? 'hide names' : 'show names'}
+      <div style={{display: 'flex', marginBottom:'10px'}}>
+      <button 
+      style={{ marginRight: '20px' }} 
+      onClick={toggleHandelr}
+      className='button'
+      >
+        {cardToggle ? 'Hide names' : 'Show names'}
       </button>
+      <button  className='button' onClick={()=>setShowModal(true)}
+      >
+        New Record
+      </button>
+      </div>
       <div className={cardToggle ? 'show' : 'hide'}>
         <Filter filteration={filterNames} />
-        <CardList
-          namesList={namesHandler()}
-          deletefunc={deleteHndeler}
-        />
+        <CardList namesList={namesHandler()} deletefunc={deleteHndeler} />
       </div>
     </div>
   );
